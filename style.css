@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f5cad1;
+}
+.container{
+    margin: 7% 7%;
+}
+.btn{
+    width: 100px;
+    background-color: #242222;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#toastbox{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+.toast{
+    width: 400px;
+    height: 80px;
+    background-color: #fff;
+    font-weight: 500;
+    margin: 15px 0px;
+    box-shadow: 0 0 20px #0000004d;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateX(100%);
+    animation:  moveleft 0.5s linear forwards;
+}
+@keyframes moveleft{
+    100%{
+    transform: translateX(0);
+    }
+   
+}
+.toast i{
+    padding: 0px 20px;
+    font-size: 35px;
+    color: green;
+}
+.toast::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: green;
+    bottom: 0;
+    left: 0;
+    animation: timeline 5s linear forwards;
+}
+@keyframes timeline{
+    100%{
+        width: 0;
+    }
+}
+.invalid i{
+    color: orange;
+}
+.invalid::after{
+    background-color: orange;
+}
+.error i{
+    color: red;
+}
+.error::after{
+    background-color: red;
+}
+@media only  screen and (max-width:700px){
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    button{
+        margin-bottom: 20px;
+    }
+    .toast{
+        width: 270px;
+    }
+    #toastbox{
+        right: 0;
+        margin-left: 0;
+        padding: 5px;
+    }
+}
